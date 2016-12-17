@@ -6,8 +6,19 @@ var utils = require('../utils/utils');
 var lichbantycmodel = mongoose.model('lichlamviectho');
 
 /* GET users listing. */
-lichbantyc.methods(['post']);
-lichbantyc.register(router,'/lichlamviectho'); 
+// lichbantyc.methods(['post']);
+// lichbantyc.register(router,'/lichlamviectho'); 
+
+router.post('/lichlamviectho', function(req, res, next) {
+	console.log(req.body);
+	var yc = new lichbantyc(req.body);
+			yc.save(function(err) {
+			if(err)res.send(utils.response(false, {}, utils.getErrorMessage(err), 403));
+			else res.send(utils.response(true, yc));
+				// else cb();
+			});
+});
+
 
 router.get('/lichlamviectho', function(req, res, next) {
 	lichbantycmodel.find({}, function(err, data) {
