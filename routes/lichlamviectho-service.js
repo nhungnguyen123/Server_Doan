@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var lichbantyc = require('../model/lichlamviectho');
 var utils = require('../utils/utils');
-var lichbantycmodel = mongoose.model('lichlamviectho');
+var lichbantycmodel = mongoose.model('lichlamviecthos');
 
 /* GET users listing. */
 // lichbantyc.methods(['post']);
